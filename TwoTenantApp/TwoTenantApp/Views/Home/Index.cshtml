@@ -1,0 +1,16 @@
+﻿@using System.Security.Claims
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <p>Please login</p>
+    }
+    else
+    {
+        <p>Your roles are: @string.Join(", ", User.FindAll(ClaimTypes.Role).Select(c => c.Value))</p>
+    }
+</div>

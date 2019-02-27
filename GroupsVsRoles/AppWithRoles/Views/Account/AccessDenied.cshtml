@@ -1,0 +1,19 @@
+﻿@using System.Security.Claims
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<h1>Access Denied</h1>
+
+<p>Sorry, you can't access that.</p>
+
+<p>You need to be a member of role: @Configuration["Auth:AdminRoleValue"]</p>
+
+<p>Your roles:</p>
+<ul>
+    @foreach (var claim in User.FindAll(ClaimTypes.Role))
+    {
+        <li>@claim.Value</li>
+    }
+</ul>

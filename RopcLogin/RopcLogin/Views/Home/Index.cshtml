@@ -1,0 +1,33 @@
+﻿@model HomeIndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>You are: @(User.Identity.IsAuthenticated ? "Authenticated" : "Not authenticated")</p>
+
+    @if (Model.Employees != null)
+    {
+        <p>Employee data from API</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model.Employees)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

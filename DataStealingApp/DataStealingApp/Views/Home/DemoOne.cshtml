@@ -1,0 +1,50 @@
+﻿@model DemoModel
+@{
+    ViewData["Title"] = "Demo";
+}
+<div class="text-center">
+    <h1>Data Stealing demo</h1>
+
+    <p>Getting access token for target tenant...</p>
+    @if (Model.AccessToken == null)
+    {
+        <p class="text-danger">Failure.</p>
+    }
+    else
+    {
+        <p class="text-success">Success.</p>
+        <p class="text-success">@Model.AccessToken.Substring(0, 20)...</p>
+        <p>Calling Employee Data API (@Model.TargetUrl)...</p>
+        @if (Model.Employees == null)
+        {
+            <p class="text-danger">Failure.</p>
+            <p class="text-danger">@Model.ErrorStatusCode (@((int)Model.ErrorStatusCode))</p>
+        }
+        else
+        {
+            <p class="text-success">Success.</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Birthdate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Employees)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.FirstName</td>
+                            <td>@item.LastName</td>
+                            <td>@item.BirthDate.ToShortDateString()</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    }
+</div>
+

@@ -1,0 +1,31 @@
+﻿@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<h1>Access Denied</h1>
+
+<p>Sorry, you can't access that.</p>
+
+<p>You need to be a member of group: @Configuration["Auth:AdminGroupId"]</p>
+
+@if (User.HasClaim(c => c.Type == "groups"))
+{
+    <p>Your groups:</p>
+    <ul>
+        @foreach (var claim in User.FindAll("groups"))
+        {
+            <li>@claim.Value</li>
+        }
+    </ul>
+}
+else if (User.HasClaim(c => c.Type == "_claim_names"))
+{
+    <p>You have claims that most likely indicate groups were not loaded:</p>
+    <ul>
+        @foreach (var claim in User.FindAll(c => c.Type == "_claim_names" || c.Type == "_claim_sources"))
+        {
+            <li>@claim.Type: @claim.Value</li>
+        }
+    </ul>
+}
