@@ -19,3 +19,9 @@ This login does not work if the user:
 * Is a federated account
 
 Do not use the ROPC flow in new apps.
+
+## References
+
+* [Azure Active Directory v2.0 and the OAuth 2.0 resource owner password credential](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth-ropc)
+* [Azure AD v2.0 Protocols - OAuth 2.0 authorization code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+* [Why the Resource Owner Password Credentials Grant Type is not Authentication nor Suitable for Modern Applications](https://www.scottbrady91.com/OAuth/Why-the-Resource-Owner-Password-Credentials-Grant-Type-is-not-Authentication-nor-Suitable-for-Modern-Applications)

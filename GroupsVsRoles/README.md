@@ -69,3 +69,10 @@ services.AddAuthorization(o =>
 
 Instead of group claims, you can also query the groups' members from MS Graph API.
 I prefer using app roles, but using groups in this way is not the end of the world.
+
+## References
+
+* [How to: Add app roles in your application and receive them in the token](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
+* [Authorization in a web app using Azure AD application roles & role claims (Sample)](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-webapp-roleclaims/)
+* [Authorization in a web app using Azure AD groups & group claims (Sample)](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-webapp-groupclaims/)
+* [List Group members via Microsoft Graph API](https://docs.microsoft.com/en-us/graph/api/group-list-members?view=graph-rest-1.0)

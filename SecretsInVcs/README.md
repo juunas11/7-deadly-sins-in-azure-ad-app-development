@@ -55,3 +55,9 @@ private static IConfiguration BuildConfig()
 Don't put secrets in version control,
 it increases the amount of people with access to the secrets.
 Usually many of those people do not need the access.
+
+## References
+
+* [ASP.NET Core + Azure Key Vault + Azure AD MSI = Awesome way to do config](https://joonasw.net/view/aspnet-core-azure-keyvault-msi)
+* [Azure AD Managed Service Identity](https://joonasw.net/view/azure-ad-managed-service-identity)
+* [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)

@@ -17,3 +17,9 @@ This includes:
 * React Native etc. apps
 
 Any app that runs on a device you do not control is a native app.
+If the API you are calling requires authentication,
+you must authenticate the user.
+
+## References
+
+* [Azure AD v2.0 Protocols - OAuth 2.0 authorization code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow)

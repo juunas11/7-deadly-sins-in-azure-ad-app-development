@@ -37,3 +37,8 @@ services.AddSingleton<IAuthorizationHandler, EmployeeReadHandler>();
 The `AnyValidScopeHandler` is responsible for the check, and is in the Authorization folder of the project.
 
 Always check in an API protected by Azure AD that the access token contains at least one valid permission!
+
+## References
+
+* [Defining permission scopes and roles offered by an app in Azure AD](https://joonasw.net/view/defining-permissions-and-roles-in-aad)
+* [Permissions and consent in the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-permissions-and-consent)

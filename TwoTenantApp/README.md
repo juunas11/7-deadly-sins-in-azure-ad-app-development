@@ -45,3 +45,7 @@ If you don't know them in advance, add a validation step via the OpenIdConnectEv
 There you can check the tenant id against a database for example.
 In the general multi-tenant case, issuer validation can be disabled,
 or you can specify a validator that checks the prefix.
+
+## References
+
+* [Tenancy in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/single-and-multi-tenant-apps)
