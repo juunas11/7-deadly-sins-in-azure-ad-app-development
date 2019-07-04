@@ -1,4 +1,5 @@
 ﻿using EmployeeApi.WithScopeChecks.Authorization;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -55,6 +56,7 @@ namespace EmployeeApi.WithScopeChecks
             });
             services.AddSingleton<IAuthorizationHandler, AnyValidScopeHandler>();
             services.AddSingleton<IAuthorizationHandler, EmployeeReadHandler>();
+            services.AddSingleton<IClaimsTransformation, ScopeSplitClaimTransformation>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

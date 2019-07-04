@@ -8,16 +8,13 @@ namespace EmployeeApi.WithScopeChecks.Authorization
 {
     public class AnyValidScopeHandler : AuthorizationHandler<AnyValidScopeRequirement>
     {
-        private const string ScopeClaimType = "http://schemas.microsoft.com/identity/claims/scope";
-
         protected override Task HandleRequirementAsync(
             AuthorizationHandlerContext context,
             AnyValidScopeRequirement requirement)
         {
-            if (context.User.HasClaim(c => c.Type == ScopeClaimType)
-                && context.User.FindFirstValue(ScopeClaimType)
-                    .Split(' ')
-                    .Any(scope => DelegatedPermissions.All.Contains(scope)))
+            if (context.User.HasClaim(c => c.Type == Claims.ScopeClaimType)
+                && context.User.FindAll(Claims.ScopeClaimType)
+                    .Any(scope => DelegatedPermissions.All.Contains(scope.Value)))
             {
                 // Caller has valid delegated permission
                 context.Succeed(requirement);

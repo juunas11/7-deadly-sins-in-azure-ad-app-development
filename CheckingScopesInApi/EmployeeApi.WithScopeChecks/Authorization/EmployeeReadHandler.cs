@@ -7,14 +7,11 @@ namespace EmployeeApi.WithScopeChecks.Authorization
 {
     public class EmployeeReadHandler : AuthorizationHandler<EmployeeReadRequirement>
     {
-        private const string ScopeClaimType = "http://schemas.microsoft.com/identity/claims/scope";
-
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, EmployeeReadRequirement requirement)
         {
-            if (context.User.HasClaim(c => c.Type == ScopeClaimType)
-                && context.User.FindFirstValue(ScopeClaimType)
-                    .Split(' ')
-                    .Any(scope => scope == DelegatedPermissions.ReadEmployees))
+            if (context.User.HasClaim(c => c.Type == Claims.ScopeClaimType)
+                && context.User.FindAll(Claims.ScopeClaimType)
+                    .Any(scope => scope.Value == DelegatedPermissions.ReadEmployees))
             {
                 // Caller has valid delegated permission
                 context.Succeed(requirement);
